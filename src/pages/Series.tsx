@@ -22,6 +22,7 @@ function SeriesPage() {
    const [hasMore, setHasMore] = useState(true);
    const observerRef = useRef<HTMLDivElement | null>(null);
 
+   // Se inicializa la carga de las peliculas y los tags
    useEffect(() => {
       const loadInitial = async () => {
          const [popularSeriesData, tagsData] = await Promise.all([fetchPopularSeries(), fetchTags()]);
@@ -32,12 +33,14 @@ function SeriesPage() {
       loadInitial();
    }, []);
 
+   // Se ejecuta cada vez que se cambia de tag
    useEffect(() => {
       setSeries([]);
       setPage(1);
       setHasMore(true);
    }, [tag]);
 
+   // Callback que realiza el llamado al servicio de series y valida que no se realicen llamados simultaneos
    const loadSeries = useCallback(async () => {
       if (loading || !hasMore) return;
 
@@ -59,6 +62,7 @@ function SeriesPage() {
       }
    }, [tag, page, loading, hasMore]);
 
+   // Se ejecuta cada vez que el div referenciado aparece en pantalla generando un scroll infinito
    useEffect(() => {
       if (!observerRef.current) return;
 
