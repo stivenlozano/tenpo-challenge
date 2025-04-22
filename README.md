@@ -1,6 +1,7 @@
 - Pasos para correr el proyecto:
 
-1. clonar el repositorio git clone https://github.com/stivenlozano/tenpo-challenge.git
+1. Clonar el repositorio git clone https://github.com/stivenlozano/tenpo-challenge.git
+2. Ejecutar cd tenpo-challenge
 2. Ejecutar npm install
 3. Ejecutar npm run dev
 
