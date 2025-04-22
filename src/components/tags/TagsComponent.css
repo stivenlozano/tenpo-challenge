@@ -1,0 +1,94 @@
+.tags {
+  position: relative;
+  display: flex;
+  align-items: center;
+  max-width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: 40px 0;
+}
+
+.tags__carousel {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 0 80px;
+}
+
+.tags__carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.tags__item {
+  flex: 0 0 auto;
+  margin: 0 8px;
+  padding: 6px 12px;
+  color: #FFFFFFAA;
+  border: 2px solid transparent;
+  border-radius: 20px;
+  white-space: nowrap;
+  font-size: 14px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.tags__item.active {
+  border: 2px solid #FFFFFFAA;
+  color: #FFFFFF;
+}
+
+
+.tags__item:hover {
+  background-color: #FFFFFF;
+  color: #252525;
+}
+
+.tags__button {
+  background: linear-gradient(to right, #00000000, #00000000);
+  padding: 20px 40px;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.3s;
+  opacity: 0;
+  font-size: 20px;
+}
+
+.tags__button:hover:enabled {
+  opacity: 1;
+  color: #FFFFFF;
+}
+
+.tags__button.left:hover:enabled {
+  background: linear-gradient(to right, #000, #00000000);
+}
+
+.tags__button.right:hover:enabled {
+  background: linear-gradient(to left, #000, #00000000);
+}
+
+.tags__button:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.tags .left {
+  position: absolute;
+  left: 0;
+}
+
+.tags .right {
+  position: absolute;
+  right: 0;
+}
+
+@media (max-width: 1024px) {
+  .tags__button {
+    padding: 20px 20px;
+  }
+
+  .tags__carousel {
+    padding: 0 40px;
+  }
+}
